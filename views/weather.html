@@ -1,0 +1,166 @@
+<!-- Home -->
+<div id="weather-wrapper">
+
+  <div class="banner">
+    <!-- <div class="overlay"></div> -->
+    <!-- <img class="dynamic-banner img-responsive" src="assets/images/banner.jpg" /> -->
+    <div class="caption-info ">
+      <h1 class="wowload animated bounceIn" id="greetMsg">{{greetMsg}}</h1>
+    </div>
+    <div class="container wowload animated fadeInLeftBig weather-container">
+        <div class="row">
+            <div class="col-xs-12">
+                <form id="form-container">
+                  <input type="text" id="city" ng-model="findPlace" class="form-control" placeholder="Find your places..." >
+                  <input id="submit-btn" type="submit" ng-click="search()" onclick="changeBtn()" ng-disabled="!(!!findPlace)" class="btn btn-search" value="Find">
+                    <!-- {{findPlace}} -->
+                </form>
+            </div>
+        </div>
+
+        <div class="row w-data">
+            <div class="col-md-4 col-sm-12 col-xs-12 forecast-current padding-none forecast">
+              <div class="forecast-header border-radius-one" style="">
+                <div style="float:left" class="wowload fadeIn animated">{{days[0].day}}</div>
+                <div style="text-align:right" class="wowload fadeIn animated">{{currentDate}}</div>
+              </div>
+              <div class="forecast-content">
+                  <div class="location">{{place}}</div>
+                  <div class="degree">
+                    <div class="num">{{midTemp(0)}}<sup>o</sup>C</div>
+                    <div class="forecast-icon">
+                      <img src="assets/images/icons/icon-1.svg" alt="" width=90>
+                    </div>
+                  </div>
+                  <div style="clear:both"></div>
+                  <span><img src="assets/images/clouds.png" alt="">{{data.item.condition.text}}</span>
+                  <span><img src="assets/images/sun.png" alt="">{{data.astronomy.sunrise}}</span>
+                  <span><img src="assets/images/sunset.png" alt="">{{data.astronomy.sunset}}</span>
+              </div>
+            </div>
+
+            <div class="col-md-2 col-sm-3 col-xs-3 padding-none forecast border-radius-four">
+              <div class="forecast-header" style="background: rgba(24, 113, 124, 0.9);">{{days[1].day}}</div>
+              <div class="forecast-content-two text-center">
+                <div class="forecast-icon">
+                  <img src="assets/images/icons/icon-3.svg" alt="">
+                  <div style="clear:both"></div>
+                  <div class="degree">
+                    {{midTemp(1)}}<sup>o</sup>C</br>
+                    <small>{{midInFarhen(1)}}<sup>o</sup>F</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-2 col-sm-3 col-xs-3 padding-none forecast">
+              <div class="forecast-header">{{days[2].day}}</div>
+
+              <div class="forecast-content-two text-center">
+                <div class="forecast-icon">
+                  <img src="assets/images/icons/icon-3.svg" alt="">
+                  <div style="clear:both"></div>
+                  <div class="degree">
+                    {{midTemp(2)}}<sup>o</sup>C</br>
+                    <small>{{midInFarhen(2)}}<sup>o</sup>F</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 col-sm-3 col-xs-3 padding-none forecast">
+              <div class="forecast-header" style="background: rgba(24, 113, 124, 0.9);">{{days[3].day}}</div>
+              <div class="forecast-content-two text-center">
+                <div class="forecast-icon">
+                  <img src="assets/images/icons/icon-3.svg" alt="">
+                  <div style="clear:both"></div>
+                  <div class="degree">
+                  {{midTemp(3)}}<sup>o</sup>C</br>
+                    <small>{{midInFarhen(3)}}<sup>o</sup>F</small>
+                  </div>
+                </div>
+              </div>
+              </div>
+            <div class="col-md-2 col-sm-3 col-xs-3 padding-none forecast border-radius-two" style="">
+              <div class="forecast-header border-radius-three">{{days[4].day}}</div>
+              <div class="forecast-content-two text-center">
+                <div class="forecast-icon">
+                  <img src="assets/images/icons/icon-3.svg" alt="">
+                  <div style="clear:both"></div>
+                  <div class="degree">
+                    {{midTemp(4)}}<sup>o</sup>C</br>
+                    <small>{{midInFarhen(4)}}<sup>o</sup>F</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div><!-- End of banner -->
+
+</div><!-- End of weather wrapper -->
+<div id="news-banner" class="container-fluid">
+  <div id="news-section" class="container ">
+    <div class="row wowload animated slideInDown">
+     <div class="col-md-6 article-section">
+       <div class="news-heading">
+         <h3 class="wowload fadeInUp animated" >
+             {{place}} Related News
+         </h3>
+       </div>
+       <div class="news-container wowload fadeIn animated">
+         <p>
+           <a target="_blank" href="{{getWebUrl(0)}}">{{getHeadline(0)}}</a></br>
+          {{getArticleSnippet(0)}}
+        </p>
+         <p>
+           <a target="_blank" href="{{getWebUrl(1)}}">{{getHeadline(1)}}</a></br>
+           {{getArticleSnippet(1)}}
+         </p>
+         <p>
+           <a target="_blank" href="{{getWebUrl(2)}}">{{getHeadline(2)}}</a></br>
+           {{getArticleSnippet(2)}}
+        </p>
+        <p>
+          <a target="_blank" href="{{getWebUrl(3)}}">{{getHeadline(3)}}</a></br>
+         {{getArticleSnippet(3)}}
+        </p>
+        <p>
+          <a target="_blank" href="{{getWebUrl(4)}}">{{getHeadline(4)}}</a></br>
+         {{getArticleSnippet(4)}}
+        </p>
+        <p>
+          <a target="_blank" href="{{getWebUrl(5)}}">{{getHeadline(5)}}</a></br>
+          {{getArticleSnippet(5)}}
+       </p>
+       <p>
+         <a target="_blank" href="{{getWebUrl(6)}}">{{getHeadline(6)}}</a></br>
+        {{getArticleSnippet(6)}}
+       </p>
+       <p>
+         <a target="_blank" href="{{getWebUrl(7)}}">{{getHeadline(7)}}</a></br>
+        {{getArticleSnippet(7)}}
+       </p>
+
+       </div>
+      </div>
+
+      <div class="col-md-5 col-md-offset-1 link-section">
+        <div class="link-heading">
+          <h3 id="test" class="wowload fadeInUp animated">
+              Relevent Links
+          </h3>
+        </div>
+        <div class="link-container wowload fadeIn animated">
+          <!-- <a target="_blank" href="{{getWebUrl(0)}}">{{getHeadline(0)}}</a> -->
+          <ul ng-repeat="x in wikiData">
+            <li><a target="_blank" href="http://en.wikipedia.org/wiki/{{x}}">{{x}}</a></li>
+          </ul>
+          <!-- <p>{{wikiData}}</p> -->
+        </div>
+       </div>
+    </div>
+  </div>
+</div>
+
+<!-- Ajax loader
+<div class="loader"></div> -->

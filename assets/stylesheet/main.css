@@ -1,0 +1,428 @@
+/*---------- Global classes----------*/
+nav{
+  margin-top: 22px;
+}
+body{
+      background-color: #fff;
+      color:#555;
+      font-family: "Roboto", "Open Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.5;
+}
+
+
+  /*-- Weather Section --*/
+  #weather-wrapper .banner{
+    /*position: relative;*/
+  	min-height: 700px;
+    margin-top: -100px;
+  	overflow: hidden;
+    background: url(../images/banner.png) center;
+    background-repeat:no-repeat;
+    -webkit-background-size:cover;-moz-background-size:cover;background-size:cover;-o-background-size:cover;
+    background-size:cover;
+    z-index: -101;
+  }
+
+  #weather-wrapper .banner .caption-info{
+  	text-align: center;
+    line-height: -30px;
+  }
+  #weather-wrapper .banner .caption-info h1{
+    line-height: -30px !important;
+  	margin-top: 140px;
+    font:700 6em 'Playfair Display', serif;
+    color: #fff;
+  }
+  #weather-wrapper .overlay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -100;
+    background-color:rgba(0,0,0,0.6);
+  }
+  #weather-wrapper .dynamic-banner{
+    position: absolute;
+    z-index: -500;
+  }
+  #weather-wrapper .weather-container{
+
+    z-index: 1000;
+  }
+  #weather-wrapper .weather-container{
+
+    color: #fff;
+  }
+  #weather-wrapper .weather-container input:first-child{
+    position: relative;
+    padding: 24px;
+    border-radius: 30px;
+    margin-top: 3em;
+    z-index: 100;
+  }
+  #weather-wrapper .weather-container .btn-search{
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    position: absolute;
+    z-index:1000;
+    right: 20px;
+    top: 45px;
+    border-radius: 30px;
+    padding:10px 40px;
+    outline:none;
+    background-color:#795548;
+
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:0px 4px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:0px 4px 5px 0px rgba(50, 50, 50, 0.75);
+    color: #fff;
+  }
+
+    #weather-wrapper .weather-container .btn-search:hover{
+      transform: scale(1.1);
+      right: 22px;
+      /*-webkit-box-shadow: 0px 4px 5px 0px rgba(50, 50, 50, 0);
+      -moz-box-shadow:0px 4px 5px 0px rgba(50, 50, 50, 0);
+      box-shadow:0px 4px 5px 0px rgba(50, 50, 50, 0);*/
+    }
+
+  #weather-wrapper .banner .w-data{
+    margin: 3rem 0;
+    margin-bottom: 16rem;
+    border-radius: 20px;
+    background-color: #fff;
+  }
+
+  #weather-wrapper .banner .forecast-current{
+    border-radius: 20px 0 0 20px;
+  }
+
+
+  /* Weather data display section */
+  .padding-none{
+    padding: 0;
+  }
+  #weather-wrapper .weather-container .forecast-header{
+    background: rgba(71, 189, 205, 0.9);
+    padding: 10px;
+    text-align: center;
+    font-weight: 400;
+    color: #fff;
+
+  }
+
+  #weather-wrapper .weather-container .forecast-content{
+    text-align: left;
+    padding: 30px 20px;
+    background-color: #fff;
+    height: 204px;
+    overflow: hidden;
+    border-radius: 0 0 0 20px;
+    color:#333;
+  }
+
+  #weather-wrapper .weather-container .location{
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #0e9ed8;
+  }
+  #weather-wrapper .weather-container .degree{
+    color: #000;
+    font-weight: 700;
+    display: inline-block;
+  }
+  #weather-wrapper .weather-container .degree .num{
+    font-size: 6.5rem;
+    margin-right: 30px;
+    float: left;
+  }
+  #weather-wrapper .weather-container .degree .forecast-icon{
+    display: inline-block;
+  }
+  #weather-wrapper .weather-container .degree .forecast-icon img{
+    margin-top: 10px;
+  }
+  #weather-wrapper .weather-container span img{
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+
+  #weather-wrapper .weather-container span{
+    margin-right: 20px;
+  }
+
+  #weather-wrapper .weather-container .forecast-content-two{
+    text-align: center;
+    padding: 30px 20px;
+  }
+  #weather-wrapper .weather-container .forecast-content-two .forecast-icon .degree{
+    font-size: 2em;
+  }
+  #weather-wrapper .weather-container .forecast-content-two .forecast-icon img{
+    margin-bottom: 20px;
+  }
+  #weather-wrapper .weather-container .forecast-content-two small{
+    color:#555;
+    font-weight: 100;
+    font-size: 20px;
+  }
+
+  .w-data .forecast:nth-child(even) {
+    background-color: #e0e0e0;
+}
+.w-data .forecast:nth-child(odd) {
+  background-color: #fff;
+}
+
+.border-radius-one{
+  border-radius: 20px 0 0 0;
+}
+.border-radius-two{
+  border-radius: 0px 20px 20px 0px;
+}
+.border-radius-three{
+  border-top-right-radius:20px;
+}
+
+#news-banner{
+  min-height:250px;
+  background: url(../images/news-banner1.jpg) fixed;
+  -webkit-background-size:cover;-moz-background-size:cover;background-size:cover;-o-background-size:cover;
+  background-size:cover;
+  padding-bottom: 7em;
+}
+#news-section{
+  margin-top: 6em;
+}
+.article-section{
+  background-color: #fff;
+  padding: 0;
+  padding-bottom: 10px;
+}
+.news-heading{
+  -webkit-box-shadow: 0px 8px 11px 0px rgba(50, 50, 50, 0.75);
+-moz-box-shadow:    0px 8px 11px 0px rgba(50, 50, 50, 0.75);
+box-shadow:         0px 8px 11px 0px rgba(50, 50, 50, 0.75);
+background-color:#3ca9cd;padding:0.4em 0;color:#fff;padding-left: 20px;
+}
+.link-section{
+  background-color: #fff;
+  padding: 0;
+}
+.link-heading{
+  -webkit-box-shadow: 0px 8px 11px 0px rgba(50, 50, 50, 0.75);
+-moz-box-shadow:    0px 8px 11px 0px rgba(50, 50, 50, 0.75);
+box-shadow:         0px 8px 11px 0px rgba(50, 50, 50, 0.75);
+background-color:#4db6ac;padding:0.4em 0;color:#fff;padding-left: 20px;
+}
+.news-container{
+  margin: 15px;
+  padding: 10px 25px;
+}
+.news-container p{
+  padding-top: 12px;
+  border-top: 1px solid #CCC;
+}
+.news-container p:first-child {
+    border-top:none;
+}
+.link-container{
+  padding: 16px 0px;
+  margin: 15px;
+  min-height:300px;
+}
+
+
+
+  @media (max-width: 992px){
+    #weather-wrapper .banner{
+      background: url(../images/banner.jpg) fixed;
+    	-webkit-background-size:cover;-moz-background-size:cover;background-size:cover;-o-background-size:cover;
+    	background-size:cover;
+    }
+    .border-radius-one{
+      border-radius: 20px 20px 0 0;
+    }
+    .border-radius-two{
+      border-radius: 0 0 20px 0;
+    }
+    .border-radius-three{
+      border-top-right-radius:0;
+    }
+
+    #weather-wrapper .banner .w-data{
+      border-radius: 1;
+    }
+    #weather-wrapper .weather-container .forecast-content {
+      border-radius: 0px;
+          height: 100%;
+    }
+    #weather-wrapper .banner .forecast-current{
+      border-radius: 20px;
+    }
+    .border-radius-four {
+      border-radius: 0 0 0px 20px;
+    }
+  }
+  @media (max-width: 768px){
+    #weather-wrapper .banner .caption-info h1 {
+        line-height: 1em;
+    }
+  }
+
+
+  /*
+   *Static Classes not to be messed around
+   */
+   nav a:focus, nav a:hover{
+     text-decoration: none;
+   }
+
+   nav a:first-child{
+     margin-right:25px;
+   }
+   .outerdiv{
+     position: relative;
+    height:65px;
+    width: 0px;
+    background-color: #c1f4e5;
+    margin-left: 30px;
+    overflow-x: hidden;
+    top: 18px;
+    left:10px;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    z-index: 1005;
+  }
+
+  .innerdiv{
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    background: url(../images/logo-fff.png);
+    -webkit-background-size:cover;-moz-background-size:cover;background-size:cover;-o-background-size:cover;
+    background-size:cover;
+    top: 14px;
+    left: 14px;
+    cursor: pointer;
+    z-index: 1100;
+    -webkit-box-shadow: 5px 5px 16px 0px rgba(50, 50, 50, 0.84);
+    -moz-box-shadow:    5px 5px 16px 0px rgba(50, 50, 50, 0.84);
+    box-shadow:         5px 5px 16px 0px rgba(50, 50, 50, 0.84);
+    border-radius: 50%;
+    animation: sizechange 1s infinite alternate;
+  }
+
+  @keyframes sizechange {
+    from { transform: rotate(-20deg); }
+    to   { transform: rotate(20deg);transition: all 0.3s ease-in-out 0s; }
+  }
+
+  .loader,
+    .loader:before,
+    .loader:after {
+      background: #000;
+      -webkit-animation: load1 1s infinite ease-in-out;
+      animation: load1 1s infinite ease-in-out;
+      width: 7px;
+      height: 4em;
+    }
+    .loader {
+      color: #000;
+      text-indent: -9999em;
+      margin: 88px auto;
+      position: relative;
+      font-size: 8px;
+      -webkit-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-animation-delay: -0.16s;
+      animation-delay: -0.16s;
+    }
+    .loader:before,
+    .loader:after {
+      position: absolute;
+      top: 0;
+      content: '';
+      }
+      .loader:before {
+      left: -1.5em;
+      -webkit-animation-delay: -0.32s;
+      animation-delay: -0.32s;
+      }
+    .loader:after {
+      left: 1.5em;
+      }
+      @-webkit-keyframes load1 {
+      0%,
+      80%,
+      100% {
+        box-shadow: 0 0;
+        height: 4em;
+      }
+      40% {
+        box-shadow: 0 -2em;
+        height: 5em;
+      }
+      }
+      @keyframes load1 {
+      0%,
+      80%,
+      100% {
+        box-shadow: 0 0;
+        height: 4em;
+      }
+      40% {
+        box-shadow: 0 -2em;
+        height: 5em;
+      }
+    }
+
+
+
+  .spinner {
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    position: absolute;
+    z-index:1000;
+    right: 17px;
+    top: 43px;
+    border: 8px solid #795548;
+   border-radius: 50%;
+   border-top: 8px solid #fff;
+   width: 48px;
+   height: 48px;
+   background-color: #fff;
+   -webkit-animation: spin 1.5s linear infinite;
+   animation: spin 1.5s linear infinite;
+
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/*Bootstrap override */
+.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
+    outline: none !important;
+    color: #fff;
+    outline-offset: -2px;
+}
+.btn.focus, .btn:focus, .btn:hover {
+    color: #fff;
+    text-decoration: none;
+}

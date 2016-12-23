@@ -7,283 +7,88 @@
 
 		<title>Weather Check | Manjil Tamang</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+		<!-- External JavaScript libraries -->
+		<script src="assets/js/jquery-1.11.1.min.js"></script>
+		<script src="assets/js/plugins.js"></script>
+		<script src="assets/js/wow.min.js"></script>
+		<script src="scripts/app.js"></script>
 
-		<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+		<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link href="assets/fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
 		<!-- Loading main css file -->
-		<link rel="stylesheet" href="style.css">
-
-		<style>
-		.loader,
-			.loader:before,
-			.loader:after {
-				background: #fff;
-				-webkit-animation: load1 1s infinite ease-in-out;
-				animation: load1 1s infinite ease-in-out;
-				width: 7px;
-				height: 4em;
-			}
-			.loader {
-				color: #fff;
-				text-indent: -9999em;
-				margin: 88px auto;
-				position: relative;
-				font-size: 8px;
-				-webkit-transform: translateZ(0);
-				-ms-transform: translateZ(0);
-				transform: translateZ(0);
-				-webkit-animation-delay: -0.16s;
-				animation-delay: -0.16s;
-			}
-			.loader:before,
-			.loader:after {
-				position: absolute;
-				top: 0;
-				content: '';
-				}
-				.loader:before {
-				left: -1.5em;
-				-webkit-animation-delay: -0.32s;
-				animation-delay: -0.32s;
-				}
-			.loader:after {
-				left: 1.5em;
-				}
-				@-webkit-keyframes load1 {
-				0%,
-				80%,
-				100% {
-					box-shadow: 0 0;
-					height: 4em;
-				}
-				40% {
-					box-shadow: 0 -2em;
-					height: 5em;
-				}
-				}
-				@keyframes load1 {
-				0%,
-				80%,
-				100% {
-					box-shadow: 0 0;
-					height: 4em;
-				}
-				40% {
-					box-shadow: 0 -2em;
-					height: 5em;
-				}
-			}
-		</style>
+		<link rel="stylesheet" href="assets/stylesheet/main.css">
+		<link rel="stylesheet" href="assets/stylesheet/animate.css">
 	</head>
-	<body ng-app="myApp" ng-controller="weatherCtrl">
+	<body ng-app="myApp" ng-controller="MainCtrl">
 
-		<!--Angular JS code-->
-		<script>
-			var app = angular.module('myApp', []);
-			app.controller('weatherCtrl', function($scope, $http) {
+		<div class="outerdiv" onmouseover="showDiv()" onmouseout="hideDiv()">
+			<nav>
+				<a href="#/">Main</a>
+				<a href="#/contact">Contact</a>
+			</nav>
+  	</div>
+	  <div class="innerdiv" onmouseover="showDiv()" onmouseout="hideDiv()"></div>
 
-				// Function triggers after search button in clicked
-				 $scope.search = function () {
-					 $scope.loading = true;
-					jsonUrl ='https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D'+'"'+$scope.findPlace+'"'+')&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys' ;
-	 			  $http.get(jsonUrl)
-	 			   .then(function (response) {
-	 			     $scope.loading = false;
-	 			    //for showing days
-	 			     $scope.days = response.data.query.results.channel.item.forecast;
-	 			     $scope.data = response.data.query.results.channel;
-	 					 $scope.cityName = $scope.data.title;
+		<div class="angular-div" ng-view></div>
+		<!-- <div id="wiki-container" >
+		  <ul id="wikipedia-links">
 
-
-	 					 $scope.place = $scope.data.location.city + ", " +$scope.data.location.country;
-						 $scope.midInFarhen = function(i){
-	 							 var midFarhen = (parseInt($scope.days[i].high) + parseInt($scope.days[i].low))/2 ;
-	 							 //For removing decimel value
-	 							 var tempretureF = Math.round(midFarhen);
-	 							 return tempretureF;
-	 					 };
-	 					 $scope.midTemp = function(i){
-	 							 var midFarhen = (parseInt($scope.days[i].high) + parseInt($scope.days[i].low))/2 ;
-	 							 // Converting fahrenheit into celsius
-	 							 var mid = (midFarhen -32)/1.8;
-	 							 //For removing decimel value
-	 							 var tempretureC = Math.round(mid);
-	 							 return tempretureC;
-	 					 };
-	 					 $scope.currentDate = $scope.data.lastBuildDate.substring(4,11);
-	 			     console.log($scope.data);
-	 			     console.log($scope.days);
-
-	 			   })
-	 				 .catch(function (data) {
-							$scope.errMsg = 'Something went wrong';
-							console.log($scope.errMsg);
-	 					});
-				 }
-
-			});
-
-		</script>
-		<!-- End of Angular JS -->
-		<div class="site-content">
-			<div class="site-header">
-				<div class="container">
-					<a href="index.html" class="branding">
-						<img src="images/logoMJL.png" alt="" class="logo">
-						<div class="logo-type">
-							<h1 class="site-title">MANJIL TAMANG</h1>
-							<small class="site-description">Programmer</small>
+		  </ul>
+		</div> -->
+		<footer>
+		<div class="container">
+				<div class="row" style="padding:4em 0;">
+						<div class="col-md-12 text-center wowload fadeIn animated">
+								© 2016 Design and Developed by <a href="https://www.linkedin.com/in/manjiltamang" target="_blank" style="text-decoration:none">Manjil Tamang</a>.
 						</div>
-					</a>
-
-					<!-- Default snippet for navigation -->
-					<div class="main-navigation">
-						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
-						<ul class="menu">
-							<li class="menu-item current-menu-item"><a href="index.html">Home</a></li>
-							<li class="menu-item"><a href="contact.html">Contact</a></li>
-						</ul> <!-- .menu -->
-					</div> <!-- .main-navigation -->
-
-					<div class="mobile-navigation"></div>
-
 				</div>
-			</div> <!-- .site-header -->
-			<div class="hero" data-bg-image="images/banner.png" style="">
-				<div class="container">
-					<form action="#" class="find-location">
-						<input type="text" ng-model="findPlace" placeholder="Find your location...">
-						<!-- <button ng-click="changeFindPlace()">FInd</button> -->
-						<button ng-click="search()">Find</button>
-					</form>
-				</div>
-
-				<!-- Ajax loader -->
-				<div class="loader" ng-show="loading" style="position:absolute;margin-left: auto;margin-right: auto;left: 0;
-				right: 0;top: 225px;"></div>
-				<!-- <center>
-					<i class="fa fa-spinner fa-spin" ng-show="loading" style="font-size:40px;color:#3498db;margin:0 auto;"></i>
-				</center> -->
-			</div>
-
-
-			<!-- Main weather content -->
-			<div class="forecast-table">
-				<div class="container">
-					<div class="forecast-container">
-
-						<div class="today forecast">
-							<div class="forecast-header">
-								<div class="day">{{days[0].day}}</div>
-								<div class="date">{{currentDate}}</div>
-							</div> <!-- .forecast-header -->
-							<div class="forecast-content">
-								<div class="location">{{place}}</div>
-								<div class="degree">
-									<div class="num">{{midTemp(0)}}<sup>o</sup>C</div>
-									<div class="forecast-icon">
-										<img src="images/icons/icon-1.svg" alt="" width=90>
-									</div>
-								</div>
-								<span><img src="images/clouds.png" alt="">{{data.item.condition.text}}</span>
-								<span><img src="images/sun.png" alt="">{{data.astronomy.sunrise}}</span>
-								<span><img src="images/sunset.png" alt="">{{data.astronomy.sunset}}</span>
-							</div>
-						</div>
-						<div class="forecast">
-							<div class="forecast-header">
-								<div class="day">{{days[1].day}}</div>
-							</div> <!-- .forecast-header -->
-							<div class="forecast-content">
-								<div class="forecast-icon">
-									<img src="images/icons/icon-3.svg" alt="" width=48>
-								</div>
-								<div class="degree">{{midTemp(1)}}<sup>o</sup>C</div>
-								<small>{{midInFarhen(1)}}<sup>o</sup>F</small>
-							</div>
-						</div>
-						<div class="forecast">
-							<div class="forecast-header">
-								<div class="day">{{days[2].day}}</div>
-							</div> <!-- .forecast-header -->
-							<div class="forecast-content">
-								<div class="forecast-icon">
-									<img src="images/icons/icon-5.svg" alt="" width=48>
-								</div>
-								<div class="degree">{{midTemp(2)}}<sup>o</sup>C</div>
-								<small>{{midInFarhen(2)}}<sup>o</sup>F</small>
-							</div>
-						</div>
-						<div class="forecast">
-							<div class="forecast-header">
-								<div class="day">{{days[3].day}}</div>
-							</div> <!-- .forecast-header -->
-							<div class="forecast-content">
-								<div class="forecast-icon">
-									<img src="images/icons/icon-7.svg" alt="" width=48>
-								</div>
-								<div class="degree">{{midTemp(3)}}<sup>o</sup>C</div>
-								<small>{{midInFarhen(3)}}<sup>o</sup>F</small>
-							</div>
-						</div>
-						<div class="forecast">
-							<div class="forecast-header">
-								<div class="day">{{days[4].day}}</div>
-							</div> <!-- .forecast-header -->
-							<div class="forecast-content">
-								<div class="forecast-icon">
-									<img src="images/icons/icon-12.svg" alt="" width=48>
-								</div>
-								<div class="degree">{{midTemp(4)}}<sup>o</sup>C</div>
-								<small>{{midInFarhen(4)}}<sup>o</sup>F</small>
-							</div>
-						</div>
-						<div class="forecast">
-							<div class="forecast-header">
-								<div class="day">{{days[5].day}}</div>
-							</div> <!-- .forecast-header -->
-							<div class="forecast-content">
-								<div class="forecast-icon">
-									<img src="images/icons/icon-13.svg" alt="" width=48>
-								</div>
-								<div class="degree">{{midTemp(5)}}<sup>o</sup>C</div>
-								<small>{{midInFarhen(5)}}<sup>o</sup>F</small>
-							</div>
-						</div>
-						<div class="forecast">
-							<div class="forecast-header">
-								<div class="day">{{days[6].day}}</div>
-							</div> <!-- .forecast-header -->
-							<div class="forecast-content">
-								<div class="forecast-icon">
-									<img src="images/icons/icon-14.svg" alt="" width=48>
-								</div>
-								<div class="degree">{{midTemp(6)}}<sup>o</sup>C</div>
-								<small>{{midInFarhen(6)}}<sup>o</sup>F</small>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<footer class="site-footer">
-				<div class="container">
-					<div class="row">
-							<div class="social-links" align="center">
-								<a href="https://www.facebook.com/manjillama" target="_blank"><i class="fa fa-facebook"></i></a>
-								<a href="https://www.linkedin.com/in/manjiltamang" target="_blank"><i class="fa fa-linkedin"></i></a>
-								<a href="https://plus.google.com/u/0/105010976836009888936" target="_blank"><i class="fa fa-google-plus"></i></a>
-								<a href="https://www.pinterest.com/lama_manjil/" target="_blank"><i class="fa fa-pinterest"></i></a>
-							</div>
-					</div>
-					<p class="colophon" align="center">2016 developed by Manjil Tamang. Template credit to &copy;Themezy.</p>
-				</div>
-			</footer> <!-- .site-footer -->
 		</div>
+		</footer>
 
-		<script src="js/jquery-1.11.1.min.js"></script>
-		<script src="js/plugins.js"></script>
-		<script src="js/app.js"></script>
+		<!-- <script>
+		var $wikiElem = $('#wikipedia-links');
+				function getWikiData(){
+
+							var wikiURL = 'https://en.wikipedia.org/w/api.php?action=opensearch&search='+userCity+ '&format=json&callback=wikiCallback';
+							//console.log(wikiURL);
+
+							var wikiRequestTimeout = setTimeout(function(){
+								console.log("failed to get wikipedia resources");
+								$("input:nth-child(2)").removeClass( "spinner" ).addClass( "btn-search" );
+							},8000);
+							$.ajax({
+								url: wikiURL,
+								dataType: 'jsonp',
+								success: function(response){
+									$("input:nth-child(2)").removeClass( "spinner" ).addClass( "btn-search" );
+									var articleList = response[1];
+									console.log(articleList);
+
+									for(var i = 0;i<articleList.length;i++){
+										articleStr = articleList[i];
+										var url = 'http://en.wikipedia.org/wiki/' + articleStr;
+										$wikiElem.append('<li><a target="_blank" href="' + url +'">'+articleStr + '</a></li>');
+									};
+									clearTimeout(wikiRequestTimeout);
+								}
+							})
+							return false;
+					}
+		</script> -->
+
+
+
+		<!--AngularJs files-->
+		<script src="scripts/controller/weather.js"></script>
+		<script src="scripts/controller/news.js"></script>
+		<script src="scripts/controller/main.js"></script>
+		<script src="scripts/services/weatherfetch.js"></script>
+		<!--End of AngularJs files-->
+
 	</body>
 
 </html>
